@@ -42,49 +42,10 @@ themeToggle.addEventListener('click', () => {
   }
 });
 
-// 4. Contact Form validation and submission simulation
-const contactForm = document.getElementById('contact-form');
-const formSubmitBtn = document.getElementById('form-submit');
-const formToast = document.getElementById('form-toast');
-
-if (contactForm && formSubmitBtn) {
-  contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    const submitText = formSubmitBtn.querySelector('span');
-    const spinner = formSubmitBtn.querySelector('.spinner');
-    
-    // Disable button and show spinner
-    formSubmitBtn.disabled = true;
-    if (submitText) submitText.textContent = 'Sending...';
-    if (spinner) spinner.style.display = 'inline-block';
-    
-    // Simulate server request
-    setTimeout(() => {
-      // Restore button state
-      formSubmitBtn.disabled = false;
-      if (submitText) submitText.textContent = 'Send Message';
-      if (spinner) spinner.style.display = 'none';
-      
-      // Reset form input values
-      contactForm.reset();
-      
-      // Show success toast
-      if (formToast) {
-        formToast.classList.add('show');
-        
-        // Hide after 4 seconds
-        setTimeout(() => {
-          formToast.classList.remove('show');
-        }, 4000);
-      }
-    }, 1500);
-  });
-}
 
 // 5. Typing Animation
 const typingTextElement = document.getElementById('typing-text');
-const words = ["Junior Full Stack Developer", "Frontend Developer", "Computer Engineer", "Fast Learner"];
+const words = ["Web Developer", "IT Administrator", "Full Stack Developer", "IT Specialist"];
 let wordIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
@@ -145,3 +106,145 @@ const initScrollReveal = () => {
 };
 
 window.addEventListener('DOMContentLoaded', initScrollReveal);
+
+// 7. Demo Notification Handler
+const handleDemoLinks = () => {
+  const demoLinks = document.querySelectorAll('.demo-link');
+  
+  const showDemoNotification = (e) => {
+    e.preventDefault();
+    let toast = document.getElementById('demo-toast');
+    if (!toast) {
+      toast = document.createElement('div');
+      toast.id = 'demo-toast';
+      toast.style.cssText = `
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background: var(--bg-surface);
+        color: var(--text-light);
+        padding: 15px 25px;
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
+        box-shadow: 0 10px 30px var(--shadow-color);
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        z-index: 10000;
+        transform: translateY(100px);
+        opacity: 0;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      `;
+      toast.innerHTML = `
+        <span style="color: var(--primary); font-size: 18px;">💡</span>
+        <span style="font-weight: 500; font-size: 15px;">Demo server is offline. Contact me for details!</span>
+      `;
+      document.body.appendChild(toast);
+    }
+    
+    // Trigger animation
+    setTimeout(() => {
+      toast.style.transform = 'translateY(0)';
+      toast.style.opacity = '1';
+    }, 10);
+    
+    // Hide after 4 seconds
+    setTimeout(() => {
+      toast.style.transform = 'translateY(100px)';
+      toast.style.opacity = '0';
+    }, 4000);
+  };
+  
+  demoLinks.forEach(link => {
+    link.addEventListener('click', showDemoNotification);
+  });
+};
+
+window.addEventListener('DOMContentLoaded', handleDemoLinks);
+
+// 8. Certificate Viewer (Lightbox for Images, Link for PDFs)
+const handleCertificates = () => {
+  const certLinks = document.querySelectorAll('.cert-viewer-link');
+  
+  certLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      const url = link.getAttribute('href');
+      const isPdf = url.toLowerCase().endsWith('.pdf');
+      
+      if (!isPdf) {
+        // It's an image, show in lightbox modal
+        e.preventDefault();
+        
+        let modal = document.getElementById('cert-modal');
+        if (!modal) {
+          modal = document.createElement('div');
+          modal.id = 'cert-modal';
+          modal.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(2, 6, 23, 0.95);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 11000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+          `;
+          modal.innerHTML = `
+            <button id="cert-modal-close" style="
+              position: absolute;
+              top: 20px;
+              right: 20px;
+              background: transparent;
+              border: none;
+              color: white;
+              font-size: 35px;
+              cursor: pointer;
+              transition: color 0.2s;
+            ">&times;</button>
+            <img id="cert-modal-img" src="" alt="Certificate" style="
+              max-width: 90%;
+              max-height: 85%;
+              border-radius: 12px;
+              box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+              border: 1px solid var(--border-color);
+              transform: scale(0.95);
+              transition: transform 0.3s ease;
+            " />
+          `;
+          document.body.appendChild(modal);
+          
+          const closeBtn = modal.querySelector('#cert-modal-close');
+          closeBtn.addEventListener('click', () => {
+            modal.style.opacity = '0';
+            modal.querySelector('#cert-modal-img').style.transform = 'scale(0.95)';
+            setTimeout(() => {
+              modal.style.display = 'none';
+            }, 300);
+          });
+          
+          modal.addEventListener('click', (event) => {
+            if (event.target === modal) {
+              closeBtn.click();
+            }
+          });
+        }
+        
+        const modalImg = modal.querySelector('#cert-modal-img');
+        modalImg.src = url;
+        modal.style.display = 'flex';
+        
+        // Trigger animations
+        setTimeout(() => {
+          modal.style.opacity = '1';
+          modalImg.style.transform = 'scale(1)';
+        }, 10);
+      }
+    });
+  });
+};
+
+window.addEventListener('DOMContentLoaded', handleCertificates);

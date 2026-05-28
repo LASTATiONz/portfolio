@@ -49,10 +49,8 @@
       const savedTheme = localStorage.getItem('theme');
       if (savedTheme === 'light') {
         document.documentElement.setAttribute('data-theme', 'light');
-      } else if (savedTheme === 'dark') {
+      } else {
         document.documentElement.setAttribute('data-theme', 'dark');
-      } else if (window.matchMedia('(prefers-color-scheme: light)').matches) {
-        document.documentElement.setAttribute('data-theme', 'light');
       }
     })();
   </script>
@@ -97,6 +95,7 @@
         <li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#projects">Projects</a></li>
+        <li><a href="#certificates">Certificates</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -108,7 +107,7 @@
         <h1>Hi, I'm <span>Teepakorn</span></h1>
         <p class="typing-container">I'm a <span id="typing-text" class="typing-text"></span><span
             class="typing-cursor">|</span></p>
-        <p>พร้อมเรียนรู้และพัฒนาตนเองอยู่เสมอ</p>
+        <p>IT Administrator & Web Developer with hands-on experience designing and building secure internal web applications, database management, and optimizing IT infrastructure.</p>
 
         <div class="buttons">
           <a href="#projects" class="btn">View My Work</a>
@@ -126,8 +125,7 @@
       </div>
 
       <div class="hero-image">
-        <img src="Assets/profile.png" alt="Profile Picture of Teepakorn"
-          onerror="this.src='https://via.placeholder.com/350x350.png?text=Profile+Image'" />
+        <img src="Assets/profile.png" alt="Profile Picture of Teepakorn" />
       </div>
     </section>
 
@@ -136,15 +134,16 @@
       <div class="responsive-grid">
         <div class="card reveal">
           <h3 class="highlight">Bachelor's Degree</h3>
-          <p style="color: var(--text-light); font-weight: 500;">Computer Engineering</p>
-          <p>2022 - 2026</p>
-          <p>Your University Name</p>
+          <p style="color: var(--text-light); font-weight: 500;">Information Technology</p>
+          <p>2012 - 2015</p>
+          <p>Prince Of Songkla University Phuket Campus</p>
         </div>
 
         <div class="card reveal">
-          <h3 class="highlight">Frontend Developer Intern</h3>
-          <p style="color: var(--text-light); font-weight: 500;">Summer 2025 | Your Company Name</p>
-          <p>Learned HTML, CSS, JavaScript, UI/UX, and frontend development to build modern web applications.</p>
+          <h3 class="highlight">IT Administrator & Web Developer</h3>
+          <p style="color: var(--text-light); font-weight: 500;">2019 - Present | ORNATE SDO.CO,Ltd</p>
+          <p>Manage IT infrastructure, provide technical support, and develop web applications for internal operations.
+          </p>
         </div>
       </div>
     </section>
@@ -155,42 +154,123 @@
 
         <div class="card project-card reveal">
           <div class="project-img-wrapper">
-            <img src="Assets/portfolio_screenshot.png" alt="Portfolio Website Screenshot" class="project-img" />
+            <img src="Assets/project1_screenshot.png" alt="Company Car Management System" class="project-img" />
           </div>
           <div class="project-info-wrapper">
-            <h3>Portfolio Website</h3>
-            <p>A personal portfolio website built with HTML, CSS, and JavaScript. Focuses on clean UI, responsive
-              design, and smooth interactions.</p>
+            <h3>Company Car Management System</h3>
+            <p>A comprehensive platform designed to manage corporate fleet vehicles. Features status monitoring,
+              scheduling, maintenance logs, and fuel tracking to optimize utilization and costs.</p>
             <div class="tags">
+              <span>PHP</span>
               <span>HTML</span>
               <span>CSS</span>
               <span>JS</span>
+              <span>SQL Server</span>
             </div>
-            <a href="https://github.com/LASTATiONz/portfolio" target="_blank" rel="noopener noreferrer"
-              class="project-link">View Project</a>
+            <a href="#" class="project-link demo-link">View Demo</a>
           </div>
         </div>
 
         <div class="card project-card reveal">
           <div class="project-img-wrapper">
-            <img src="Assets/login_system_screenshot.png" alt="Login System Screenshot" class="project-img" />
+            <img src="Assets/project2_screenshot.png" alt="Recruitment System" class="project-img" />
           </div>
           <div class="project-info-wrapper">
-            <h3>Login System</h3>
-            <p>A secure authentication system implementing session management, database connectivity, and customized
-              secure user registration.</p>
+            <h3>Recruitment System</h3>
+            <p>An applicant tracking system to streamline hiring. Allows HR teams to post positions, process incoming
+              resumes, schedule interviews, and manage the candidate pipeline.</p>
             <div class="tags">
               <span>PHP</span>
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>JS</span>
               <span>SQL Server</span>
-              <span>Tailwind CSS</span>
             </div>
-            <a href="https://github.com/LASTATiONz" target="_blank" rel="noopener noreferrer" class="project-link">View
-              Project</a>
+            <a href="#" class="project-link demo-link">View Demo</a>
+          </div>
+        </div>
+
+        <div class="card project-card reveal">
+          <div class="project-img-wrapper">
+            <img src="Assets/project3_screenshot.png" alt="Car-Usage System" class="project-img" />
+          </div>
+          <div class="project-info-wrapper">
+            <h3>Car-Usage System</h3>
+            <p>A booking and booking management application for company cars. Users can check real-time availability,
+              schedule business trips, and submit post-trip mileage reports.</p>
+            <div class="tags">
+              <span>PHP</span>
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>JS</span>
+              <span>SQL Server</span>
+            </div>
+            <a href="#" class="project-link demo-link">View Demo</a>
+          </div>
+        </div>
+
+        <div class="card project-card reveal">
+          <div class="project-img-wrapper">
+            <img src="Assets/project4_screenshot.png" alt="Motorcycle-Usage System" class="project-img" />
+          </div>
+          <div class="project-info-wrapper">
+            <h3>Motorcycle-Usage System</h3>
+            <p>A specialized dispatch and allocation tracker for company motorcycles. Handles quick local bookings,
+              driver logs, check-ins, and safety checklist verifications.</p>
+            <div class="tags">
+              <span>PHP</span>
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>JS</span>
+              <span>SQL Server</span>
+            </div>
+            <a href="#" class="project-link demo-link">View Demo</a>
+          </div>
+        </div>
+
+        <div class="card project-card reveal">
+          <div class="project-img-wrapper">
+            <img src="Assets/project5_screenshot.png" alt="Onboard System" class="project-img" />
+          </div>
+          <div class="project-info-wrapper">
+            <h3>Onboard System</h3>
+            <p>An automated onboarding app to guide new hires through their first weeks. Features digitized checklist
+              items, training modules, document submission, and progress tracking.</p>
+            <div class="tags">
+              <span>PHP</span>
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>JS</span>
+              <span>SQL Server</span>
+            </div>
+            <a href="#" class="project-link demo-link">View Demo</a>
+          </div>
+        </div>
+
+    </section>
+
+
+    <section id="certificates" class="section">
+      <h2 class="reveal">Certificates</h2>
+      <div class="certificates-grid">
+
+        <div class="card project-card reveal">
+          <div class="project-info-wrapper">
+            <h3>Google Gemini Certificate</h3>
+            <p>Professional certificate validating foundational expertise in generative AI engineering, prompt engineering, and leveraging Gemini models.</p>
+            <div class="tags">
+              <span>Generative AI</span>
+              <span>Gemini</span>
+              <span>Google</span>
+            </div>
+            <a href="Assets/certificate01.pdf" target="_blank" class="project-link cert-viewer-link">View Certificate</a>
           </div>
         </div>
 
       </div>
     </section>
+
+
 
     <section id="contact" class="section">
       <h2 class="reveal">Contact Me</h2>
@@ -198,7 +278,12 @@
 
         <div class="contact-info">
           <div class="contact-card reveal">
-            <div class="contact-icon">✉️</div>
+            <div class="contact-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+              </svg>
+            </div>
             <div class="contact-info-content">
               <p class="label">Email</p>
               <a href="mailto:teepakorn.moo@gmail.com">teepakorn.moo@gmail.com</a>
@@ -206,7 +291,11 @@
           </div>
 
           <div class="contact-card reveal">
-            <div class="contact-icon">📞</div>
+            <div class="contact-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+            </div>
             <div class="contact-info-content">
               <p class="label">Phone</p>
               <p>+66 94-595-6125</p>
@@ -214,7 +303,13 @@
           </div>
 
           <div class="contact-card reveal">
-            <div class="contact-icon">🌐</div>
+            <div class="contact-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
+                <path d="M2 12h20"></path>
+              </svg>
+            </div>
             <div class="contact-info-content">
               <p class="label">Socials</p>
               <div class="social-links">
@@ -236,40 +331,9 @@
               </div>
             </div>
           </div>
+
         </div>
 
-        <div class="contact-form-container card reveal">
-          <form id="contact-form" class="contact-form">
-            <div class="form-group">
-              <label for="form-name">Name</label>
-              <input type="text" id="form-name" name="name" placeholder="Your Name" required />
-            </div>
-            <div class="form-group">
-              <label for="form-email">Email</label>
-              <input type="email" id="form-email" name="email" placeholder="Your Email" required />
-            </div>
-            <div class="form-group">
-              <label for="form-subject">Subject</label>
-              <input type="text" id="form-subject" name="subject" placeholder="Subject" required />
-            </div>
-            <div class="form-group">
-              <label for="form-message">Message</label>
-              <textarea id="form-message" name="message" rows="4" placeholder="Your Message" required></textarea>
-            </div>
-            <button type="submit" id="form-submit" class="btn">
-              <span>Send Message</span>
-              <svg class="spinner" viewBox="0 0 50 50"
-                style="display: none; width: 20px; height: 20px; margin-left: 10px; border: none; vertical-align: middle; animation: spin 1s linear infinite;">
-                <circle cx="25" cy="25" r="20" fill="none" stroke="currentColor" stroke-width="5"
-                  stroke-dasharray="80, 200" stroke-dashoffset="0" stroke-linecap="round"></circle>
-              </svg>
-            </button>
-          </form>
-          <div id="form-toast" class="form-toast">
-            <span class="toast-icon">✓</span>
-            <span class="toast-message">Message sent successfully!</span>
-          </div>
-        </div>
 
       </div>
     </section>
